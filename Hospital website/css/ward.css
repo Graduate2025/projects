@@ -1,0 +1,235 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+::selection {
+  background-color: crimson;
+  color: white;
+}
+:root {
+  --col: crimson;
+  --sec: #ff2953;
+}
+.cont {
+  width: 90%;
+  margin: 0px auto;
+}
+@media (min-width: 1700px) {
+  .cont {
+    width: 1600px;
+  }
+}
+
+/* header */
+.header {
+  background-color: var(--col);
+  width: 100%;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.links {
+  background-color: pink;
+  position: absolute;
+  border-radius: 0px 0px 5px 5px;
+  left: 50%;
+  transform: translate3d(-50%, 0%, -10px);
+  bottom: 0%;
+  transition-duration: 0.3s;
+  transform-style: preserve-3d;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.links.opened {
+  transform: translate3d(-50%, 100%, -10px);
+}
+.links a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  pointer-events: none;
+  position: relative;
+}
+.links a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background-color: var(--col);
+  transition-duration: 0.3s;
+}
+.links a:hover::before {
+  width: 100%;
+}
+.links.opened a {
+  pointer-events: all;
+}
+.links .logo {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translate3d(-50%, 50%, 20px);
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--col);
+  font-size: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px rgba(220, 20, 60, 0.24);
+  transition-duration: 0.3s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.links.opened .logo {
+  bottom: 0%;
+  transform: translate3d(-50%, 100%, 20px);
+}
+/* \\header */
+
+/* edit staff */
+.edit-staff {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 999;
+  transition-duration: 0.3s;
+}
+.edit-staff.closed {
+  height: 0;
+  width: 0;
+}
+.edit-staff .wrapper {
+  width: 1200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1250px) {
+  .edit-staff .wrapper {
+    width: 90%;
+  }
+}
+.edit-staff .wrapper .controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.edit-staff .wrapper .controls > * {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--col);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--col);
+  cursor: pointer;
+}
+.edit-staff .wrapper .controls .save {
+  background-color: var(--col);
+  color: white;
+}
+.edit-staff .wrapper .in-room,
+.edit-staff .wrapper .out-room {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+.edit-staff .wrapper .in-room > *,
+.edit-staff .wrapper .out-room > * {
+  cursor: pointer;
+}
+.edit-staff .wrapper .staff {
+  background-color: var(--col);
+  color: white;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+/* \\edit staff */
+
+.ward {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 10px 0px;
+  gap: 20px;
+}
+.ward-name {
+  color: var(--col);
+  margin: 30px auto 10px;
+  width: fit-content;
+}
+.delete-department {
+  width: fit-content;
+  border: 2px solid var(--col);
+  color: var(--col);
+  margin: 0 auto;
+  padding: 5px;
+  display: none;
+}
+.ward .room {
+  border: 3px solid var(--col);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  text-align: center;
+}
+.ward .room h3 {
+  color: var(--col);
+}
+.ward .room .info {
+  color: var(--col);
+  margin-top: -10px;
+}
+.ward .room .manage-staff,
+.ward .room .delete-room {
+  background: var(--col);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* add */
+.add {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+}
+.add > * {
+  border-radius: 5px;
+  border: 2px solid var(--col);
+  padding: 5px;
+  color: var(--col);
+  cursor: pointer;
+}
+/* \\add */
