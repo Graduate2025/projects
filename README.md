@@ -22,3 +22,6 @@
 - **Hazem Mohamed**
    - LinkedIn: [LinkedIn Profile]()
    - GitHub: [GitHub Profile](https://github.com/hazemxiii)
+- **Ahmed Salah**
+   - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/ahmed-salah-a6541b285)
+   - GitHub: [GitHub Profile](https://github.com/Ahmed-1920)
