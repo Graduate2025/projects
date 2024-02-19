@@ -25,3 +25,6 @@
 - **Ahmed Salah**
    - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/ahmed-salah-a6541b285)
    - GitHub: [GitHub Profile](https://github.com/Ahmed-1920)
+- **Marwan Ashraf**
+   - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/marwan-ashraf-09b840270)
+   - GitHub: [GitHub Profile](https://github.com/MarwanAshraf03)
