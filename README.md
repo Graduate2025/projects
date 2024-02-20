@@ -28,3 +28,9 @@
 - **Marwan Ashraf**
    - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/marwan-ashraf-09b840270)
    - GitHub: [GitHub Profile](https://github.com/MarwanAshraf03)
+  **Ahmed Samir Abdelazim**
+   - LinkedIn: [LinkedIn Profile]()
+   - GitHub:[GitHub Profile](https://github.com/ahmedsmra)
+  **Mustafa Saleh Mustafa**
+   - LinkedIn: [LinkedIn Profile]()
+   - GitHub:[GitHub Profile]()
