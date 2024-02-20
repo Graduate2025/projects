@@ -1,0 +1,52 @@
+.form{
+	font-size: 20px;
+	margin: 20px auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	background-color: #ddd;
+	padding: 20px 10px;
+	border-radius: 5px;
+	max-width: 500px;
+}
+*:focus{
+	outline: none;
+	border: none;
+}
+input[type="text"]{
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	flex: 1;
+}
+.submit{
+	padding: 10px;
+	color: white;
+	background-color: red;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.tasks{
+	background-color: #ddd;
+	padding: 10px;
+	border-radius: 5px;
+}
+.tasks .task{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	padding: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+.tasks .task button{
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
