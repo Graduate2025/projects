@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".EditSubjects">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/blue1"
+        app:titleTextColor="@color/white"
+        android:id="@+id/toolbaredit">
+        <Button
+            android:id="@+id/btnSave"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Save"
+            android:textColor="@color/white"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/selecday1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/toolbaredit"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/editsub"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:hint="Select Day"
+        android:textColorHint="@color/blue3"
+        app:hintTextColor="@color/blue3">
+
+        <AutoCompleteTextView
+            android:id="@+id/selecday"
+            android:background="@drawable/editsub"
+            android:textColorHint="@color/blue3"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            android:inputType="none"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/edtsubj1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/selecday1"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/editsub"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:hint="Subject1"
+        android:textColorHint="@color/blue3"/>
+
+    <EditText
+        android:id="@+id/edtsubj2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/edtsubj1"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/editsub"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:hint="Subject2"
+        android:textColorHint="@color/blue3"
+        android:textColor="@color/white" />
+    <EditText
+        android:id="@+id/edtsubj3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/edtsubj2"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/editsub"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:hint="Subject3"
+        android:textColorHint="@color/blue3"
+        android:textColor="@color/white" />
+    <EditText
+        android:id="@+id/edtsubj4"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/edtsubj3"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/editsub"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:hint="Subject4"
+        android:textColorHint="@color/blue3"
+        android:textColor="@color/white" />
+    <EditText
+        android:id="@+id/edtsubj5"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/edtsubj4"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/editsub"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:hint="Subject5"
+        android:textColorHint="@color/blue3"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

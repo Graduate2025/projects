@@ -1,0 +1,43 @@
+import os
+import time
+# # clear the console screen
+# os.system('cls' if os.name == 'nt' else 'clear')
+i = 0
+while True:
+    if i == 3:
+        i = 0
+    i += 1
+    if i == 1:
+        # print('/\t/\t/', end='')
+        print('/\t\\\t/')
+    if i == 2:
+        # print('-\t-\t-', end='')
+        print('-\t-\t-')
+    if i == 3:
+        # print('\\\t\\\t\\', end='')
+        print('\\\t/\t\\')
+    # print(i, end='')
+    time.sleep(0.1)
+    os.system('cls')
+# i = 0
+# while True:
+#     if i == 3:
+#         i = 0
+#     i += 1
+#     if i == 1:
+#         print('/\b\b', end='')
+#     if i == 2:
+#         print('-\b\b', end='')
+#     if i == 3:
+#         print('\\\b\b', end='')
+#     # print(i, end='')
+#     time.sleep(0.1)
+#     # print('\b')
+#     # os.system('cls')
+# import time
+# print("Counting down:")
+# for i in range(10, 0, -1):
+#     # print(i, end='\r\r')
+#     print(i, end='')
+#     time.sleep(1)
+# print("Blast off!")

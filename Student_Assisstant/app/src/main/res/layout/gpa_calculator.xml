@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="100"
+        android:orientation="vertical">
+
+        <!--Text view for viewing The calculated GPA     -->
+        <TextView
+            android:id="@+id/GpaViewer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gpa is Here."
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Recycler view for the added subjects        -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/GpaViewer" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!--    Edit text to have the input of the user for
+                the number of hours of the subject          -->
+        <EditText
+            android:id="@+id/crHrsET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_text_gpa_calculator_style"
+            android:gravity="center"
+            android:hint="Subject Hours"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColor="@color/deepBlack"
+            android:textColorHint="@color/deepBlack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--    Edit text to have the input of the user for
+                the Earned hours of the past semesters          -->
+        <EditText
+            android:id="@+id/ernHrsET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/cgpaET"
+            android:background="@drawable/edit_text_gpa_calculator_style"
+            android:gravity="center"
+            android:hint="Earned Hours"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColor="@color/deepBlack"
+            android:textColorHint="@color/deepBlack"
+            app:layout_constraintBottom_toTopOf="@+id/crHrsET"
+            app:layout_constraintEnd_toStartOf="@+id/calculate"
+            app:layout_constraintStart_toEndOf="@+id/cgpaET" />
+
+        <!--    Edit text to have the input of the user for
+                the CGPA of the past semesters          -->
+        <EditText
+            android:id="@+id/cgpaET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_text_gpa_calculator_style"
+            android:gravity="center"
+            android:hint="CGPA"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textColor="@color/deepBlack"
+            android:textColorHint="@color/deepBlack"
+            app:layout_constraintBottom_toTopOf="@+id/crHrsET"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--    The button which is clicked to calculate the GPA    -->
+        <Button
+            android:id="@+id/calculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/blue1"
+            android:minHeight="50dp"
+            android:text="Calculate"
+            android:textAllCaps="false"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/AddSubj"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--    The Button which is clicked to Add Subject to our list of subjects    -->
+        <Button
+            android:id="@+id/AddSubj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calculate"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/blue1"
+            android:minHeight="50dp"
+            android:text="Add Subject"
+            android:textAllCaps="false"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

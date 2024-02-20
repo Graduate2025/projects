@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUs"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_centerInParent="true"
+            android:text="AboutUs"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/aboutUs"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_centerInParent="true"
+            android:text="How it started?"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="It all started with the 3rd term in my college on a free day. Me as a college student wanted to study what had been given in my lectures, but I couldn’t find the content of that particular subject I was trying to study, so I did what I had to do and began searching for that content, but to no avail. The problem that I had was that I had to look for them in the thousands of text messages sent by other people and the other content being sent in the text chat that our mentors and other students use so it was pretty mind boggling. Another problem is that I had a lot of assignments due that I didn’t know they existed in the first place because going back to first problem it was all given in the form of a text in a chat that I wouldn’t always have and the fact that it has a deadline that I would sometimes forget. So, I came up with the idea for this app at first for my own benefit, but I shared it with my teammates, and we started building the app with not just the purposes that I had in mind to build this app for, but with other features that we’ve seen useful or otherwise needed.\n"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"/>
+
+        </ScrollView>
+
+</LinearLayout>

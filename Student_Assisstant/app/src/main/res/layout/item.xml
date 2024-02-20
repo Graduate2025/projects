@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/blue2"
+    app:cardCornerRadius="15dp"
+    app:contentPadding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue2">
+
+        <!--    Text view to view the subject hours of the subject-->
+        <TextView
+            android:id="@+id/crHrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Number of Credit hours"
+            android:textColor="@color/deepBlack" />
+
+        <!--    The Spinner which holds the Grades of the subjects-->
+        <Spinner
+            android:id="@+id/Spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/deepBlack"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:tooltipText="Grade" />
+
+        <!--    Text View to show the hint to the user to make him know
+                that in order to delete this subject from the list they
+                must long click it                                      -->
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Long\nClick\nTo\nDelete"
+            android:textColor="@color/deepBlack" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

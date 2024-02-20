@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    tools:context=".signIn"
+    android:background="@color/blue1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Sign In"
+            android:textSize="40sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/sign_in_style"
+        android:gravity="center|top"
+        android:paddingTop="80dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/email_in_sign_in"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Email address"
+            android:singleLine="true"
+            android:textColorHint="@color/neutral"
+            android:background="@drawable/edit_text_sign_style"
+            android:textColor="@color/black"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/password_in_sign_in"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_sign_style"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/neutral"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/sign_in"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue2"
+            android:text="Sign in"
+            app:cornerRadius="100000dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="5dp"/>
+
+        <Button
+            android:id="@+id/sign_up"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue2"
+            android:text="Sign up"
+            app:cornerRadius="100000dp"
+            android:padding="10dp"
+            android:textColor="@color/black"/>
+
+        <CheckBox
+            android:id="@+id/stay_signed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stay signed in"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginRight="60px"/>
+
+        <TextView
+            android:id="@+id/forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Forgot password?"
+            android:textColor="@color/blue1"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

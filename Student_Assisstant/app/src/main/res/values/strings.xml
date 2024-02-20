@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Stu Tools</string>
+    <string-array name="Main">
+        <item>Saturday</item>
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+
+    </string-array>
+    <string-array name="time">
+        <item>8:30 – 10:10</item>
+        <item>10:30 – 12:10</item>
+        <item>12:30 – 2:10</item>
+        <item>2:30 – 4:10</item>
+        <item>4:30 – 6:10</item>
+
+    </string-array>
+
+    <string name="aboutUs">Want to take your student experience to a higher level ? want to be more organized, efficient and do it all in one place ? Then our service is the one that you’ve been looking for with a variety of tools made just for you to help elevate your student life and increase your productivity.</string>
+    <string name="Howitstarted">It all started with the 3rd term in my college on a free day. Me as a college student wanted to study what had been given in my lectures, but I couldn’t find the content of that particular subject I was trying to study, so I did what I had to do and began searching for that content, but to no avail. The problem that I had was that I had to look for them in the thousands of text messages sent by other people and the other content being sent in the text chat that our mentors and other students use so it was pretty mind boggling. Another problem is that I had a lot of assignments due that I didn’t know they existed in the first place because going back to first problem it was all given in the form of a text in a chat that I wouldn’t always have and the fact that it has a deadline that I would sometimes forget. So, I came up with the idea for this app at first for my own benefit, but I shared it with my teammates, and we started building the app with not just the purposes that I had in mind to build this app for, but with other features that we’ve seen useful or otherwise needed.</string>
+</resources>

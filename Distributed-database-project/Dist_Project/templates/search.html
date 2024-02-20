@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search</title>
+        <link rel="stylesheet" href="http://127.0.0.1:5000/static/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <!--<div class ="header">-->
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="/"><img src="{{url_for('static', filename='logo.png')}}" width="125px"></a>
+                </div>
+               <nav>
+                    <ul id="MenuItems">
+                        <li><a href="/">Account</a></li>
+                        <li><a href="/search" class="active">Search</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/about">About</a></li>
+
+                    </ul>
+                </nav>
+                <a href="/cart"><img src="{{url_for('static', filename='cart.png')}}" width="30px" height="30px"></a>
+                <img src="{{url_for('static', filename='menu.png')}}" class="menu-icon" onClick="menutoggle()" >
+            </div>
+           
+        </div>
+	  <div class="container">
+		<form method="post">
+
+			<div class="check">
+				<div class="box">
+				    <input type="checkbox" name="city" id="cairo" value="cairo" checked>
+			        <label for="cairo">Cairo</label>
+			    </div>
+			    <div class="box">
+			        <input type="checkbox" name="city" id="alex" value="alex" checked>
+			        <label for="alex">Alexandria</label>
+			    </div>
+			    <div class="box">
+			        <input type="checkbox" name="city" id="psaid" value="psaid" checked>
+			        <label for="psaid">Port Said</label>
+			    </div>
+		  </div>
+    <div class="cont">
+        <table class="results">
+            <tr class="main-row">
+                <th>Product</th>
+                <th>State</th>
+                <th>Quantity</th>
+            </tr>
+            {% for i in items %}
+                {% for j in i %}
+                <tr>
+                    {% if j[0] == 'total' %}
+                        <td>{{j[0]}}</td>
+                        <td></td>
+                        <td>{{j[1]}}</td>
+                    {% else %}
+                        <td>{{j[0]}}</td>
+                        <td>{{j[1]}}</td>
+                        <td>{{j[2]}}</td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>        
+          
+        <div class="col-md-auto">
+            <ul class="checklist">
+                <li><input type="checkbox" name="product" id="1" value="1">
+                    <label for="1">Valentino</label></li>
+                <li><input type="checkbox" name="product" id="2" value="2">
+                        <label for="2">Velvet</label></li>
+                <li><input type="checkbox" name="product" id="3" value="3">
+                        <label for="3">Horizon</label></li>
+                <li><input type="checkbox" name="product" id="4" value="4">
+                        <label for="4">Bentley</label></li>
+                <li><input type="checkbox" name="product" id="5" value="5">
+                        <label for="5">Surf</label></li>
+                <li><input type="checkbox" name="product" id="6" value="6">
+                        <label for="6">Giorgio</label></li>
+                <li><input type="checkbox" name="product" id="7" value="7">
+                        <label for="7">Emper</label></li>
+                <li><input type="checkbox" name="product" id="8" value="8">
+                        <label for="8">Legend</label></li>
+                <li><input type="checkbox" name="product" id="9" value="9">
+                        <label for="9">Aventure</label></li>
+                <li><input type="checkbox" name="product" id="10" value="10">
+                        <label for="10">Dunhill</label></li>
+                </ul>
+                <input type="submit" value="Search">						
+            
+        </div>
+      </div>
+            </form>
+        </div>
+      </div>
+	</div>
+        
+        <!----------------------------------footer------------------------------------->
+        <div class ="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="footer-col-2">
+                    <img src="{{url_for('static', filename='logo-white.png')}}">
+                    <p>Effortlessly manage and track your products with our user-friendly inventory platform for streamlined order processes and real-time stock insights.</p>
+                </div>
+            </div>
+            
+            <hr><!--horizontal line-->
+            <p class="copyright">Copyright 2021 - Apurba Kr. Pramanik</p>
+            
+        </div>
+    </div>
+        
+        
+        <!-----------------------------------js for toggle menu----------------------------------------------->
+        <script>
+            var menuItems=document.getElementById("MenuItems");
+            
+            MenuItems.style.maxHeight="0px";
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px"){
+                    MenuItems.style.maxHeight="200px";
+                }
+                else{
+                    MenuItems.style.maxHeight="0px";
+                }
+            }
+        </script>
+        <script>
+            let products = document.querySelectorAll(".pro");
+            products.forEach((e, i) => {
+                var url = new URL(e.href);
+                url.searchParams.set('p', i + 1);
+                e.href = url.toString();
+            });
+
+        </script>
+    </body>
+</html>
