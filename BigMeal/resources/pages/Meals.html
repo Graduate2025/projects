@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="description" content="Restaurant" />
+  <title>Big Meal</title>
+  <link rel="icon" href="icon.ico">
+  <link rel="stylesheet" href="..\css\meals - style.css">
+  <link rel="stylesheet" href="..\css\font awesome\css\font-awesome.css">
+  <link rel="stylesheet" href="..\css\font awesome\css\font-awesome.min.css">
+</head>
+
+<body>
+
+  <nav>
+    <a href="..\..\index.html"> <img src="..\images\logo.png" width="125px"></a>
+    <div class="navi" id="nav">
+      <i class="fa fa-times" onclick="hidenav()"></i>
+      <ul>
+
+        <li><a href="drinks.html">Drinks</a></li>
+        <li><a href="Dessert.html">Dessert</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <i class="fa fa-bars" onclick="shownav()"> </i>
+  </nav>
+  <br><br>
+  <pre><center><h1> Meals </h1> </center></pre><br><br>
+  <div class="content">
+    <div class="frame">
+      <img src="..\..\resources\images\Meals\Chicken pizza.jpg" style="width:400px;height:300px;">
+    </div>
+    <pre>
+        Chicken pizza
+        <table>
+          <tr>
+            <th>small</th>
+            <th>medium</th>
+            <th>large</th>
+          </tr>
+          <tr>
+            <td>15$</td>
+            <td>25$</td>
+            <td>50$</td>
+          </tr>
+        </table>
+        </pre>
+    <div class="frame">
+      <img src="..\..\resources\images\Meals\Classic Burger.jpg" style="width:400px;height:300px;" alt="Classic burger">
+    </div>
+    <pre>
+        Classic burger
+        <table>
+          <tr>
+            <th>+Pepsi</th>
+            <th>+Side fries</th>
+            <th>+pepsi + side fries</th>
+          </tr>
+          <tr>
+            <td>13.5$</td>
+            <td>15$</td>
+            <td>20$</td>
+          </tr>
+        </table>
+        </pre>
+    </pre>
+
+    <div class="frame">
+      <img src="..\..\resources\images\Meals\roast chicken.jpg" style="width:400px;height:300px;" alt="Roasted chicken">
+    </div>
+    <pre>
+        Roasted Chicken
+        <table>
+          <tr>
+            <th>+Fries</th>
+            <th>+Sauce</th>
+            <th>+Fries + Sauce</th>
+          </tr>
+          <tr>
+            <td>15$</td>
+            <td>20$</td>
+            <td>30$</td>
+          </tr>
+        </table>
+        </pre>
+    </pre>
+  </div><br>
+  <div style="position: relative;background-color: black; width: 100%; height: 170px;">
+
+    <div style="position: absolute; bottom: 5px; background-color: black;color: white;">
+
+      <footer>
+
+        <p> Location: Bakersfield, CA 93301. </p>
+        <p> Phone: 1-888-745-3886 </p>
+        <p> Email: Bigmeal@gmail.com </p>
+        <p> Facebook: Big meal</p>
+        <p>Big Meal © 2021</p>
+
+      </footer>
+    </div>
+  </div>
+  </div>
+
+
+  <!---------------javascript------------>
+  <script>
+    var nav = document.getElementById("nav")
+    function shownav() {
+      nav.style.right = "0";
+    }
+    function hidenav() {
+      nav.style.right = "-200px";
+    }
+  </script>
+  <!---------------javascript------------>
+</body>
+
+</html>

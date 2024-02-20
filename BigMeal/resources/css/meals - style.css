@@ -1,0 +1,136 @@
+
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    /*max-height: 50px;*/
+}
+.navi{
+        flex: 1;
+        text-align: right;
+}
+.navi ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 24px;
+    position: relative;
+}
+.navi ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+.navi ul li::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #A30E00;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.navi ul li:hover::after{
+    width: 100%;
+}
+nav .fa{
+    display: none;
+}
+
+
+
+@media (max-width: 700px){
+
+    .navi ul li{
+        display: block;
+    }
+    .navi{
+        position: absolute;
+        background: #A30E00;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 0.5s;
+    }
+    nav .fa{
+        display: block;
+        color: white;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+
+    }
+    .navi ul {
+        padding: 15px;
+    }
+}
+
+
+/*-------------------------content of the page-----------------------*/
+.content{
+    max-width:500px;
+    margin:auto;
+}
+
+body{
+    background-image: url(../images/background.jpg);
+  }
+
+  pre{
+    color:white;
+    font-size: 35px;
+    word-spacing: 2px;
+}
+th{
+    font-size: 23px;
+    word-spacing: 2px;
+    color:white;
+}
+td{
+    font-size: 23px;
+    word-spacing: 2px;
+    color:white;
+
+}
+table {
+    border-spacing: 10px 0px;
+}
+th, td {
+    text-align: center; padding: 10px;
+}
+.feature {
+    width: 183px; text-align: right;
+    font-size: 24px; font-weight: normal; color: #fff;
+}
+h2 {
+    font-size: 24px; font-weight: normal; color:white;
+}
+
+center{
+    font-size: 40px;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color:white;
+}
+.frame {
+    width: 400px;
+    height: 300px;
+    border: 3px solid #ccc;
+    background: #A30E00;
+    padding: 5px 5px;
+}
+.frame img{
+    height: 300px;
+    width: 400px;
+ }

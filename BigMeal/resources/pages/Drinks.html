@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="description" content="Restaurant" />
+    <title>Big Meal</title>
+    <link rel="icon" href="icon.ico">
+    <link rel="stylesheet" href="..\css\drinks - style.css">
+    <link rel="stylesheet" href="..\css\font awesome\css\font-awesome.css">
+    <link rel="stylesheet" href="..\css\font awesome\css\font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="..\..\index.html"> <img src="..\images\logo.png" width=125px></a>
+        <div class="navi" id="nav">
+            <i class="fa fa-times" onclick="hidenav()"></i>
+            <ul>
+                <li><a href="meals.html">Meals</a></li>
+                <li><a href="Dessert.html">Dessert</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="shownav()"> </i>
+    </nav>
+    <br><br>
+    <pre><center><h1>Drinks</h1></center></pre> <br><br><br>
+    <div class="content">
+        <pre><big><big>Cola</big></big></pre>
+        <div class="frame">
+            <img src="..\..\resources\images\Drinks\IMG_0442.JPG" width="35%" alt="Cola">
+        </div>
+        <p>costs: 3$</p>
+
+        <pre><big><big>Vanilla milkshake</big></big></pre>
+        <div class="frame">
+            <img src="..\..\resources\images\Drinks\IMG_0426.JPG" width="25%" alt="Vanilla milkshake">
+        </div>
+        <p>costs: 4.5$</p>
+
+        <pre><big><big>Chocolate milkshake</big></big></pre>
+        <div class="frame">
+            <img src="..\..\resources\images\Drinks\IMG_0427.JPG" width="25%" alt="Chocolate milkshake">
+        </div>
+        <p>costs: 5.5$</p>
+
+        <pre><big><big>Turkish Coffee</big></big></pre>
+        <div class="frame">
+            <img src="..\..\resources\images\Drinks\IMG_0431.JPG" width="25%" alt="Turkish coffee">
+        </div>
+        <p>costs: 3$</p>
+    </div>
+    <br>
+    <div style="position: relative;background-color: black; width: 100%; height: 170px;">
+
+        <div style="position: absolute; bottom: 5px; background-color: black;color: white;">
+
+            <footer>
+
+                <p> Location: Bakersfield, CA 93301. </p>
+                <p> Phone: 1-888-745-3886 </p>
+                <p> Email: Bigmeal@gmail.com </p>
+                <p> Facebook: Big meal</p>
+                <p>Big Meal © 2021</p>
+
+            </footer>
+        </div>
+    </div>
+    </div>
+
+    <!---------------javascript------------>
+    <script>
+        var nav = document.getElementById("nav")
+        function shownav() {
+            nav.style.right = "0";
+        }
+        function hidenav() {
+            nav.style.right = "-200px";
+        }
+    </script>
+    <!---------------javascript------------>
+</body>
+
+</html>

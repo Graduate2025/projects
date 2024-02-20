@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="description" content="Restaurant" />
+    <title>Big Meal</title>
+    <link rel="icon" href="icon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources\css\font awesome\css\font-awesome.css">
+    <link rel="stylesheet" href="resources\css\font awesome\css\font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html"> <img src="resources\images\logo.png" width=125px></a>
+        <div class="navi" id="nav">
+            <i class="fa fa-times" onclick="hidenav()"></i>
+            <ul>
+                <li><a href="resources\pages\meals.html">Meals</a></li>
+                <li><a href="resources\pages\drinks.html">Drinks</a></li>
+                <li><a href="resources\pages\dessert.html">Dessert</a></li>
+                <li><a href="resources\pages\about.html">About</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="shownav()"> </i>
+    </nav>
+    <div class="video">
+
+        <video autoplay muted>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <br><br><br><br>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 6</div>
+            <img src="resources/images/slideshow/img1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 6</div>
+            <img src="resources/images/slideshow/img2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 6</div>
+            <img src="resources/images/slideshow/img3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="resources/images/slideshow/img4.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="resources/images/slideshow/img5.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="resources/images/slideshow/img6.jpg" style="width:100%">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+
+
+    <div class="footer" style="position: relative;background-color: black; width: 100%; height: 220px;">
+
+        <div style="position: absolute; bottom: 5px; background-color: black;color: white;">
+
+            <footer>
+
+                <p> Location: Bakersfield, CA 93301. </p>
+                <p> Phone: 1-888-745-3886 </p>
+                <p> Email: Bigmeal@gmail.com </p>
+                <p> Facebook: Big meal</p>
+                <p>Big Meal © 2021</p>
+
+            </footer>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <!---------------javascript------------>
+    <script>
+        var nav = document.getElementById("nav")
+        function shownav() {
+            nav.style.right = "0";
+        }
+        function hidenav() {
+            nav.style.right = "-200px";
+        }
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+    </script>
+    <!---------------javascript------------>
+</body>
+
+</html>

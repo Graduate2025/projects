@@ -1,0 +1,254 @@
+---
+title: "Bellabeat Case Study with R"
+author: "Nour Eldeen Anwar"
+date: "2023-02-15"
+output: html_document
+---
+
+## About a company
+
+Bellabeat, a high-tech manufacturer of health-focused products for women. Bellabeat is a successful small company, but they have the potential to become a larger player in the global smart device market. Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company.
+
+### Questions for the analysis
+
+1.What are some trends in smart device usage?
+
+2.How could these trends apply to Bellabeat customers?
+
+3.How could these trends help influence Bellabeat marketing strategy
+
+### Loading packages
+```{r}
+library(tidyverse)
+library(skimr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+```
+
+### Import and process datasets
+```{r}
+dailyActivity<-read_csv("G:/coursera/project/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")%>%
+  mutate(activity_days=weekdays(as.Date(ActivityDate, "%m/%d/%Y")))%>%
+  drop_na()%>%
+  rename_with(tolower)
+dailyActivity$id<-as.character(dailyActivity$id)
+skim(dailyActivity)
+glimpse(dailyActivity)
+max(dailyActivity$sedentaryminutes)
+dailyActivity<-filter(dailyActivity,sedentaryminutes<1436)
+sum(duplicated(dailyActivity))
+sum(is.na(dailyActivity))
+
+
+hourlyCalories<-read_csv("G:/coursera/project/Fitabase Data 4.12.16-5.12.16/hourlyCalories_merged.csv")
+hourlyCalories<-separate(hourlyCalories,ActivityHour,into = c('hourlyCaloriesDate','hourlyCaloriesTime','time' ),sep = " ")%>%
+  drop_na()%>%
+  rename_with(tolower)%>%
+  mutate(hourlyCalories_days=weekdays(as.Date(hourlycaloriesdate , "%m/%d/%Y")))
+hourlyCalories$id<-as.character(hourlyCalories$id)
+skim(hourlyCalories)
+glimpse(hourlyCalories)
+sum(duplicated(hourlyCalories))
+sum(is.na(dailyActivity))
+
+daily_sleep<-read_csv("G:/coursera/project/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")%>%
+  drop_na()%>%
+  rename_with(tolower)%>%
+  distinct()%>%
+  mutate(sleepDays=weekdays(as.Date(sleepday , "%m/%d/%Y")))
+skim(daily_sleep)
+daily_sleep$id<-as.character(daily_sleep$id)
+daily_sleep<-separate(daily_sleep,sleepday,into = c('sleepday','sleeptime','am&pm'),sep = " ")
+glimpse(daily_sleep)
+sum(duplicated(daily_sleep))
+sum(is.na(daily_sleep))
+
+
+dailyIntensities<-read_csv("G:/coursera/project/Fitabase Data 4.12.16-5.12.16/dailyIntensities_merged.csv")%>%
+  rename_with(tolower)
+dailyIntensities$id<-as.character(dailyIntensities$id)
+skim(dailyIntensities)
+glimpse(dailyIntensities)
+sum(duplicated(dailyIntensities))
+sum(is.na(dailyIntensities))
+
+weightLogInfo<-read_csv("G:/coursera/project/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")%>%
+  separate(Date,into = c('weightDate','weightTime','AM&PM' ),sep = " ")%>%
+  rename_with(tolower)%>%
+  mutate(weight_days=weekdays(as.Date(weightdate,"%m/%d/%Y")))%>%
+  select(-fat)
+weightLogInfo$id<-as.character(weightLogInfo$id)
+skim(weightLogInfo)
+glimpse(weightLogInfo)
+sum(duplicated(weightLogInfo))
+sum(is.na(weightLogInfo))
+```
+### ...................Analyze.................
+
+#### Count unique combinations
+```{r}
+n_distinct(dailyActivity$id)
+n_distinct(weightLogInfo$id)
+n_distinct(hourlyCalories$id)
+n_distinct(dailyIntensities$id)
+n_distinct(daily_sleep$id)
+```
+
+### usage by day and user, percenatge of day covered using device
+```{r}
+hours_used <- dailyActivity %>% 
+  mutate(hours_used = round((veryactiveminutes + fairlyactiveminutes + lightlyactiveminutes + sedentaryminutes)/60, 2)) %>%
+  mutate(hours_used_pct = round((hours_used/24), 2))%>%
+  mutate(act_percent = scales::percent(hours_used_pct))
+
+glimpse(hours_used)
+```
+
+
+
+### usage hours by date
+
+```{r}
+ggplot(hours_used, aes(x = hours_used, y = activitydate)) + 
+  geom_col(fill = "#fe7275") + 
+  xlab("Hours Used") + 
+  ylab("Date") + 
+  ggtitle("Hours Used Over Time")
+```
+Looks like we can observe a usage trend here. There is a clear dip in the pattern.
+
+
+###  (average minutes steps per weekdays)
+
+```{r}
+summary_steps<-dailyActivity %>%
+  group_by(activity_days) %>%
+  summarise(avg_steps_minutes = round(mean(totalsteps), 2)) %>%
+  arrange(-avg_steps_minutes)
+summary_steps
+
+ggplot(data = summary_steps)+
+  geom_bar(mapping=aes(x=reorder(activity_days   , avg_steps_minutes ),y=avg_steps_minutes),stat="identity",fill="brown")+
+  labs(title="Average steps per weekdays",
+       x= "Weekdays",
+       y= "avg_steps")
+```
+
+### Let’s check which days users sleeping more (average minutes sleep per day)
+```{r}
+summary_sleep<-daily_sleep %>%
+  group_by(sleepDays) %>%
+  summarise(avg_sleep_minutes = round(mean(totalminutesasleep), 2)) %>%
+  arrange(-avg_sleep_minutes)
+summary_sleep
+
+ggplot(data = summary_sleep)+
+  geom_bar(mapping=aes(x=reorder(sleepDays , avg_sleep_minutes ),y=avg_sleep_minutes),stat="identity",fill="brown")+
+  labs(title="Average sleep minutes per day",
+       x= "Weekdays",
+       y= "avg_steps")
+```
+
+#### Lets group user in 4 groups according their intensity (Total Steps)
+#### Insert variable activity_type depending users total steps
+
+```{r}
+activity_types <- dailyActivity %>%
+  mutate(
+    activity_type = case_when(
+      dailyActivity$totalsteps < 5000 ~ "Sedentary",
+      dailyActivity$totalsteps >= 5000 & dailyActivity$totalsteps < 7000 ~ "Light",
+      dailyActivity$totalsteps >= 7000 & dailyActivity$totalsteps < 10000 ~ "Moderate",
+      dailyActivity$totalsteps >= 10000 ~ "Vigorous"
+    ))
+skim(activity_types)
+```
+
+#### The total number of each type
+
+```{r}
+activity_types %>%
+  group_by(activity_type) %>% 
+  summarize(total=n())
+```
+
+#### Create table with the % of use activity type users
+
+```{r}
+
+daily_activity_percent <- activity_types %>%
+  group_by(activity_type) %>%
+  summarise(total = n()) %>%
+  mutate(totals = sum(total)) %>%
+  group_by(activity_type) %>%
+  summarise(total_percent = total / totals) %>%
+  mutate(act_percent = scales::percent(total_percent))
+daily_activity_percent
+
+```
+
+# Plot daily_activity_percent
+
+```{r}
+ggplot(daily_activity_percent, aes(x = "", y = total_percent, fill = activity_type)) +
+  geom_col(color = "black") +
+  geom_text(aes(label = act_percent),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y") +
+  guides(fill = guide_legend(title = "Activity type users")) +
+  labs(title="Activity type users distribution") +
+  theme_void()
+
+ggplot(data=activity_types, aes(x=totalsteps, y=calories, color=activity_type)) +
+  geom_point() + geom_smooth(formula = y ~ x, method = "gam") + 
+  labs(title="Correlation Between Total steps & Calories",colour="Activity Types", xlab("Total steps"))
+```
+
+#### Let's merge between daily_Activity and Daily_sleep 
+
+```{r}
+daily_activity_sleep<-merge(dailyActivity,daily_sleep,by="id")
+skim(daily_activity_sleep)
+glimpse(daily_activity_sleep)
+
+ggplot(data=daily_activity_sleep, aes(x=totaltimeinbed, y=totalminutesasleep)) +
+  geom_point()+ geom_smooth() + labs(title="Correlation Minutes Asleep & Time in Bed Minutes",
+       x= "total time in bed",
+       y= "Total minutes of sleep")
+
+ggplot(data=daily_activity_sleep, aes(x=totaltimeinbed, y=totalsteps)) +
+  geom_point()+ geom_smooth() + labs(title="Correlation Minutes Asleep & totalsteps",
+        x= "total time in bed",
+        y= "total of steps")
+
+```
+
+```{r}
+daily_activity_weight<-merge(activity_types,weightLogInfo,by="id")
+n_distinct(daily_activity_weight$id)
+skim(daily_activity_weight)
+glimpse(daily_activity_weight)
+
+time<-hourlyCalories %>%
+  group_by(time) %>%
+  summarise(total_calories =sum(calories)) %>%
+  arrange(-total_calories)
+time
+
+ggplot(data=time, aes(x = "", y = total_calories, fill = time)) +
+  geom_col(color = "black") +
+  geom_text(aes(label = total_calories),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y") +
+  labs(title="The number of calories burned") +
+  theme_void()
+
+```
+
+### Recommendations
+1.Based on this data Find ways to use the Bellabeat app to encourage users to decrease their sedentary minutes , perhaps by vibrating, send notifications etc. 
+
+2.Users that consistently record step totals, or calories burned could earn achievements or trophies through the app.
+
+3 Users can be notified on Sunday and increase prizes to encourage them to be more active
